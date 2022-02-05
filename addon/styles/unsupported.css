@@ -1,0 +1,18 @@
+/* FALLBACKS FOR UNSUPPORTED RULES */
+@supports not (gap: 0.4rem) {
+  .emoji-picker-footer__skin-tones:not(:first-child) {
+    margin-inline-start: 0.4rem;
+  }
+  .emoji-picker-categories:not(:first-child) {
+    margin-inline-start: var(--category-list-gap, 0.2rem);
+  }
+  .emoji-picker-emojis__grid {
+    grid-gap: var(--emoji-icon-grid-gap, 0.2rem);
+  }
+}
+
+@supports not (inline-size: clamp(12rem, 24rem, 36rem)) {
+  .emoji-picker-container {
+    inline-size: var(--emoji-picker-width, 24rem);
+  }
+}

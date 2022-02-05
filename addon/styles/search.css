@@ -1,0 +1,12 @@
+/****************************** SEARCH COMPONENT ******************************/
+.emoji-picker-search {
+    order: var(--searchbar-order, initial);
+    border: var(--search-border, 1px solid lightblue);
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+  .emoji-picker-search__input {
+    inline-size: 100%;
+    padding: 0.4rem;
+    border: none;
+  }

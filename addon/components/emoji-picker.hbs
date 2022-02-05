@@ -1,0 +1,63 @@
+<div id='ember-emoji-picker' class='emoji-picker-container'>
+  {{#if (has-block 'search')}}
+    {{yield to='search'}}
+  {{else}}
+    <Searchbar @searchEmojis={{this.searchEmojis}} />
+  {{/if}}
+
+  {{#if (has-block 'header')}}
+    {{yield to='header'}}
+  {{else}}
+    <Header @activeCategory={{this.activeCategory}}>
+      <Skintones
+        @activeSkinTone={{this.activeSkinTone}}
+        @skinTones={{this.allSkintones}}
+        @selectSkinTone={{this.selectSkinTone}}
+        @skinTonePickerVisible={{this.skinTonePickerVisible}}
+        @toggleSkinTonePicker={{this.toggleSkinTonePicker}}
+      />
+    </Header>
+  {{/if}}
+
+  {{#if (has-block 'loader')}}
+    {{yield this.emojiService.fetching to='loader'}}
+  {{else}}
+    <Loader @loading={{this.emojiService.fetching}} />
+  {{/if}}
+
+  <div class='emoji-picker-emojis' data-emoji-picker-hidden={{if this.emojiService.fetching true}}>
+    <Emojis
+      @activeEmojiList={{this.activeEmojiList}}
+      @activeCategory={{this.activeCategory}}
+      @iconSet={{this.iconSet}}
+      @iconSize={{this.iconSize}}
+      @emojisGroupedByCategories={{this.emojisGroupedByCategories}}
+      @searchResults={{this.searchResults}}
+      @recentEmojis={{this.recentEmojis}}
+      @handleEmojiSelect={{this.handleEmojiSelect}}
+      @isCorrectSkinTone={{this.isCorrectSkinTone}}
+      as |emptyText|
+    >
+      {{#if (has-block 'empty')}}
+        {{yield emptyText to='empty'}}
+      {{else}}
+        <div class='emoji-picker-emojis__empty'>{{emptyText}}</div>
+      {{/if}}
+    </Emojis>
+  </div>
+
+  {{#if (has-block 'footer')}}
+    {{yield to='footer'}}
+  {{/if}}
+
+  {{#if (has-block 'categories')}}
+    {{yield to='categories'}}
+  {{else}}
+    <Categories
+      @activeCategory={{this.activeCategory}}
+      @categories={{this.filteredCategories}}
+      @moveToCategory={{this.selectCategory}}
+      @iconSize={{this.categoryIconSize}}
+    />
+  {{/if}}
+</div>

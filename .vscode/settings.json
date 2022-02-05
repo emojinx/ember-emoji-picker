@@ -1,0 +1,16 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modifications",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "js/ts.implicitProjectConfig.experimentalDecorators": true
+}

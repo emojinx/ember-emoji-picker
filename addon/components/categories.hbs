@@ -1,0 +1,14 @@
+<div class="emoji-picker-categories" aria-live="polite">
+  {{!-- use inline svg's if possible --}}
+  {{#each @categories as |category| }}
+    <img
+      role="button"
+      class="emoji-picker-categories__category-icon {{if (eq @activeCategory.id category.id) "active"}}"
+      src={{category.icon}}
+      alt={{category.name}}
+      width={{@iconSize}}
+      height={{@iconSize}}
+      {{on "click" (fn @moveToCategory category)}}
+    />
+  {{/each}}
+</div>

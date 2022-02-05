@@ -1,0 +1,56 @@
+#ember-emoji-picker {
+  --emoji-picker-width: 24rem;
+  --header-order: initial;
+  --footer-order: initial;
+  --emojis-order: initial;
+  --searchbar-order: initial;
+  --categories-order: initial;
+}
+
+/* HIDDEN STATE */
+[data-emoji-picker-hidden] {
+  display: none !important;
+}
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+:where(#ember-emoji-picker) :where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Padding for all top level components */
+.emoji-picker-categories,
+.emoji-picker-emojis,
+.emoji-picker-searchbar,
+.emoji-picker-loader,
+.emoji-picker-header,
+.emoji-picker-footer {
+  overflow: hidden;
+  padding: 0.4rem;
+}
+
+/****************************** MAIN CONTAINER COMPONENT ******************************/
+.emoji-picker-container {
+  display: flex;
+  flex-direction: column;
+  inline-size: clamp(12rem, 24rem, 36rem);
+  outline: var(--emoji-picker-border, 1px solid lightcoral);
+  border-radius: 0.25rem;
+}
+
+/****************************** LOADER ******************************/
+.emoji-picker-loader {
+  block-size: var(--emoji-icon-grid-height, 25rem);
+  display: grid;
+  place-items: center;
+}
+
+@import './unsupported.css';
+@import './header.css';
+@import './search.css';
+@import './categories.css';
+@import './emojis.css';
+@import './skin-tones.css';

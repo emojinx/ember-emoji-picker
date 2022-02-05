@@ -1,0 +1,18 @@
+<div class="emoji-picker-skintones">
+  {{#if @skinTonePickerVisible}}
+    {{#each @skinTones as |skinTone|}}
+      <span
+        class="emoji-picker-skintones__skin-tone skin-{{skinTone.id}}"
+        role="button"
+        aria-label="skin tone {{skinTone.name}}"
+        {{on "click" (fn @selectSkinTone skinTone)}}>
+      </span>
+    {{/each}}
+  {{else}}
+    <span
+      class="emoji-picker-skintones__skin-tone skin-{{@activeSkinTone.id}}"
+      role="button"
+      {{on "click" @toggleSkinTonePicker}}>
+    </span>
+  {{/if}}
+</div>

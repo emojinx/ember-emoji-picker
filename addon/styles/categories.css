@@ -1,0 +1,16 @@
+/****************************** CATEGORIES ******************************/
+.emoji-picker-categories {
+    order: var(--category-list-order, initial);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+    background: var(--category-list-bg, aliceblue);
+  }
+  .emoji-picker-categories__category-icon {
+    padding: 0.2rem;
+    cursor: pointer;
+    object-fit: contain;
+  }
+  .emoji-picker-categories__category-icon:hover {
+    background-color: var(--category-icon-bg-on-hover, aliceblue);
+  }

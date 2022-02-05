@@ -1,0 +1,49 @@
+/****************************** EMOJI LIST ******************************/
+.emoji-picker-emojis {
+  order: var(--emoji-list-order, initial);
+}
+.emoji-picker-emojis__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: var(--emoji-icon-grid-height, 25rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y proximity;
+  min-inline-size: 8rem;
+  block-size: var(--emoji-icon-grid-height, 25rem);
+
+  /* hide scrollbars */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.emoji-picker-emojis__list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/****************************** EMOJIS GRID ******************************/
+.emoji-picker-emojis__grid {
+  scroll-snap-align: start;
+  display: grid;
+  place-items: center;
+  gap: 0.2rem;
+  grid-template-columns: repeat(var(--emoji-icon-grid-cols, 11), 1fr);
+}
+.emoji-picker-emojis__empty {
+  /* Makes the cell span entire grid */
+  grid-area: 1 / 1 / -1 / -1;
+}
+
+/****************************** EMOJI ICON ******************************/
+.emoji-picker-emojis__emoji-icon {
+  display: inline-block;
+  inline-size: var(--emoji-size, 1.25rem);
+  block-size: var(--emoji-size, 1.25rem);
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  object-fit: contain;
+}
+.emoji-picker-emojis__emoji-icon:hover {
+  background-color: var(--emoji-icon-bg-on-hover, aliceblue);
+}

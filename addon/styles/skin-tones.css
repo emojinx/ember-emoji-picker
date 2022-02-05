@@ -1,0 +1,32 @@
+/****************************** SKIN TONES ******************************/
+.emoji-picker-skintones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .emoji-picker-skintones__skin-tone {
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 0.25rem;
+    block-size: var(--skin-tone-size, 1.25rem);
+    inline-size: var(--skin-tone-size, 1.25rem);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FA {
+    background: var(--default-skintone, #ffdc5d);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FB {
+    background: var(--light-skintone, #fadcbc);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FC {
+    background: var(--medium-light-skintone, #debb90);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FD {
+    background: var(--medium-skintone, #c19a65);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FE {
+    background: var(--medium-dark-skintone, #a57939);
+  }
+  .emoji-picker-skintones__skin-tone.skin-1F3FF {
+    background: var(--dark-skintone, #6a462f);
+  }

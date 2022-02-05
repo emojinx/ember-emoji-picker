@@ -1,0 +1,10 @@
+/****************************** HEADER ******************************/
+.emoji-picker-header {
+    order: var(--header-order, initial);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.8rem;
+    color: var(--header-color, darkslategrey);
+    font-size: 1rem;
+  }

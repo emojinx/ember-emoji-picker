@@ -1,0 +1,13 @@
+<div class="emoji-picker-searchbar">
+  <div class="emoji-picker-search">
+    <span class="emoji-picker-search__icon"></span>
+    <Input
+      class="emoji-picker-search__input"
+      aria-label="search for emojis"
+      @type="search"
+      placeholder="Search..."
+      {{autofocus}}
+      {{on "input" @searchEmojis}}
+    />
+  </div>
+</div>

@@ -1,0 +1,72 @@
+{{! TODO: Enable to switch type between `svg` & `png` }}
+
+{{! Not using #if to avoid removing and adding DOM elements repeatedly }}
+{{! Instead hiding using simple CSS display: none; }}
+
+{{! Default Emoji List }}
+<div
+  class='emoji-picker-emojis__list emoji-picker-emojis__list--default'
+  data-emoji-picker-hidden={{if (not-eq @activeEmojiList 'default') true}}
+  {{scroll-to @activeCategory}}
+>
+  {{#each-in @emojisGroupedByCategories as |categoryId emojis|}}
+    <section class='emoji-picker-emojis__grid emoji-picker-emojis__category--{{categoryId}}' aria-label={{categoryId}}>
+      {{#each emojis as |emoji|}}
+        {{! Sprite img & positions are set by `emoji-style` helper }}
+        <i
+          class='emoji-picker-emojis__emoji-icon'
+          role='button'
+          aria-label={{emoji.annotation}}
+          data-emoji={{emoji.emoji}}
+          data-hex={{emoji.hexcode}}
+          style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
+          {{on 'click' (fn @handleEmojiSelect emoji)}}
+        ></i>
+      {{/each}}
+    </section>
+  {{else}}
+    {{yield 'no Emojis :/'}}
+  {{/each-in}}
+</div>
+
+{{! Search Emoji List }}
+<div
+  class='emoji-picker-emojis__list emoji-picker-emojis__list--search-result'
+  data-emoji-picker-hidden={{if (not-eq @activeEmojiList 'search_results') true}}
+>
+  <section class='emoji-picker-emojis__grid'>
+    {{#each @searchResults as |emoji|}}
+      <i
+        class='emoji-picker-emojis__emoji-icon'
+        role='button'
+        aria-label={{emoji.annotation}}
+        data-emoji={{emoji.hexcode}}
+        style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
+        {{on 'click' (fn @handleEmojiSelect emoji)}}
+      ></i>
+    {{else}}
+      {{yield 'Sorry, no results found :/'}}
+    {{/each}}
+  </section>
+</div>
+
+{{! Recents Emoji List }}
+<div
+  class='emoji-picker-emojis__list emoji-picker-emojis__list--recent-emojis'
+  data-emoji-picker-hidden={{if (not-eq @activeEmojiList 'recents') true}}
+>
+  <section class='emoji-picker-emojis__grid'>
+    {{#each @recentEmojis as |emoji|}}
+      <i
+        class='emoji-picker-emojis__emoji-icon'
+        role='button'
+        aria-label={{emoji.annotation}}
+        data-emoji={{emoji.hexcode}}
+        style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
+        {{on 'click' (fn @handleEmojiSelect emoji)}}
+      ></i>
+    {{else}}
+      {{yield 'No Recents :/'}}
+    {{/each}}
+  </section>
+</div>
