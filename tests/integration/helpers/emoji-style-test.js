@@ -1,7 +1,7 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 
 module('Integration | Helper | emoji-style', function (hooks) {
   setupRenderingTest(hooks);
@@ -12,6 +12,6 @@ module('Integration | Helper | emoji-style', function (hooks) {
 
     await render(hbs`{{emoji-style inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.strictEqual(this.element.textContent.trim(), '1234');
   });
 });

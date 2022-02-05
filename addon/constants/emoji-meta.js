@@ -1,7 +1,5 @@
 import { categorySvgs } from './inline-svg';
 
-const iconset = 'twemoji';
-
 export const categories = {
   'smileys-emotion': {
     id: 'smileys-emotion',
