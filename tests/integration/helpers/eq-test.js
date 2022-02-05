@@ -13,6 +13,6 @@ module('Integration | Helper | eq', function (hooks) {
 
     await render(hbs`{{eq val1 val2}}`);
 
-    assert.equal(this.element.textContent.trim(), true);
+    assert.true(this.element.textContent.trim());
   });
 });
