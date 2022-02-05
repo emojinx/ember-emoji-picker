@@ -1,9 +1,11 @@
 # Emoji Primer
+
 [How Emojis Work](https://joeattardi.codes/how-emojis-work)
 
 ## Text Configurations
 
 ### Search:
+
 ```
 search                : 'Search'
 clear                 : 'Clear'
@@ -12,6 +14,7 @@ searchPlaceholder     : 'Search...
 ```
 
 ### Skin:
+
 ```
 skintext : 'Choose your default skin tone',
 
@@ -25,8 +28,8 @@ skintones: {
 }
 ```
 
-
 ### Categories
+
 ```
 Categorieslabel : 'Emoji categories'
 
@@ -57,33 +60,41 @@ categories: {
   - spritesheet (PNG | SVG)
   - dataset for it (JSON)
 - Configurations
-  - `sheetSet`    : [`'apple'`, `'facebook'`, `'google'`, `'twitter'`]
-  - `sheetSize`   : [`16`, `20`, `32`, `64`]
+  - `sheetSet` : [`'apple'`, `'facebook'`, `'google'`, `'twitter'`]
+  - `sheetSize` : [`16`, `20`, `32`, `64`]
 
 ---
+
 ### Available Sheets
-| Set       | Size (`16`) | Size (`20`) | Size (`32`) | Size (`64`) |
-| --------- | ------------| ------------| ------------| ------------|
-| apple     | 407 KB      | 561 KB      | 1.34 MB     | 3.60 MB     |
-| facebook  | 416 KB      | 579 KB      | 1.38 MB     | 3.68 MB     |
-| google    | 362 KB      | 489 KB      | 1.12 MB     | 2.78 MB     |
-| twitter   | 361 KB      | 485 KB      | 1.05 MB     | 2.39 MB     |
+
+| Set      | Size (`16`) | Size (`20`) | Size (`32`) | Size (`64`) |
+| -------- | ----------- | ----------- | ----------- | ----------- |
+| apple    | 407 KB      | 561 KB      | 1.34 MB     | 3.60 MB     |
+| facebook | 416 KB      | 579 KB      | 1.38 MB     | 3.68 MB     |
+| google   | 362 KB      | 489 KB      | 1.12 MB     | 2.78 MB     |
+| twitter  | 361 KB      | 485 KB      | 1.05 MB     | 2.39 MB     |
+
 ---
+
 ### Available Datasets
-| Set       | Size (on disk) |
-| --------- | -------------- |
-| all       | 611 KB         |
-| apple     | 548 KB         |
-| facebook  | 468 KB         |
-| google    | 518 KB         |
-| twitter   | 517 KB         |
-| native    | ??? KB         |
+
+| Set      | Size (on disk) |
+| -------- | -------------- |
+| all      | 611 KB         |
+| apple    | 548 KB         |
+| facebook | 468 KB         |
+| google   | 518 KB         |
+| twitter  | 517 KB         |
+| native   | ??? KB         |
+
 ---
 
 ## Data
 
 ### Emoji
+
 **With Skin Variations**
+
 ```js
 {
     "name": "HANDBALL",
@@ -176,6 +187,7 @@ categories: {
 ```
 
 **Without Skin Variations**
+
 ```js
 {
     "name": "DIVING MASK",
@@ -206,6 +218,7 @@ categories: {
 ```
 
 **Custom Emoji**
+
 ```js
 {
   id: 'octocat',
@@ -221,6 +234,7 @@ categories: {
 ---
 
 ### Sheet
+
 ```js
 {
   url: "https://unpkg.com/emoji-datasource-twitter@4.0.4/img/twitter/sheets-256/64.png",
@@ -233,6 +247,7 @@ categories: {
 ---
 
 ### Category
+
 ```js
 {
   id: 'smiley',
@@ -244,6 +259,7 @@ categories: {
 ---
 
 ### Skin
+
 ```ts
 {
   skinImg: 'url for svg image'

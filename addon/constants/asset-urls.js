@@ -23,9 +23,12 @@ export const spriteUrlsPng = {
 
 // Other Utils, using emoji base for other lists
 export const emojiListUrls = {
-  version: 'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/versions/emoji.json',
-  hexcode: 'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/meta/hexcodes.json',
-  unicode: 'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/meta/unicode.json',
+  version:
+    'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/versions/emoji.json',
+  hexcode:
+    'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/meta/hexcodes.json',
+  unicode:
+    'https://cdn.jsdelivr.net/npm/emojibase-data@6.2.0/meta/unicode.json',
 };
 
 // Emoji List built using `emojibase`, `openmoji` & `svgmoji` in `@emojinx/emoji-data` repo

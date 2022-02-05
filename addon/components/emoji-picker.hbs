@@ -25,7 +25,10 @@
     <Loader @loading={{this.emojiService.fetching}} />
   {{/if}}
 
-  <div class='emoji-picker-emojis' data-emoji-picker-hidden={{if this.emojiService.fetching true}}>
+  <div
+    class='emoji-picker-emojis'
+    data-emoji-picker-hidden={{if this.emojiService.fetching true}}
+  >
     <Emojis
       @activeEmojiList={{this.activeEmojiList}}
       @activeCategory={{this.activeCategory}}

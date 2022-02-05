@@ -1,4 +1,9 @@
-import { emojiList, emojiWebpSprites, emojiListUrls, groupedEmojiList } from '../constants/asset-urls';
+import {
+  emojiList,
+  emojiWebpSprites,
+  emojiListUrls,
+  groupedEmojiList,
+} from '../constants/asset-urls';
 
 export function getWebpSpriteUrl(iconSet) {
   return emojiWebpSprites[iconSet];

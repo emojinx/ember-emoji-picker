@@ -10,7 +10,10 @@
   {{scroll-to @activeCategory}}
 >
   {{#each-in @emojisGroupedByCategories as |categoryId emojis|}}
-    <section class='emoji-picker-emojis__grid emoji-picker-emojis__category--{{categoryId}}' aria-label={{categoryId}}>
+    <section
+      class='emoji-picker-emojis__grid emoji-picker-emojis__category--{{categoryId}}'
+      aria-label={{categoryId}}
+    >
       {{#each emojis as |emoji|}}
         {{! Sprite img & positions are set by `emoji-style` helper }}
         <i
@@ -32,7 +35,10 @@
 {{! Search Emoji List }}
 <div
   class='emoji-picker-emojis__list emoji-picker-emojis__list--search-result'
-  data-emoji-picker-hidden={{if (not-eq @activeEmojiList 'search_results') true}}
+  data-emoji-picker-hidden={{if
+    (not-eq @activeEmojiList 'search_results')
+    true
+  }}
 >
   <section class='emoji-picker-emojis__grid'>
     {{#each @searchResults as |emoji|}}

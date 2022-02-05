@@ -4,7 +4,6 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d2dc46cc-78ad-4cc7-8aae-b84cf72123a5/deploy-status)](https://app.netlify.com/sites/ember-emoji-picker/deploys)
 
-
 # ⚠️ WIP
 
 - Quick Demo @ https://ember-emojipicker.netlify.app

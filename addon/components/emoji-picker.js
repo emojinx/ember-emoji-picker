@@ -5,7 +5,11 @@ import { inject as service } from '@ember/service';
 import { isEmpty, isPresent } from '@ember/utils';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { categories, EmojiListTypes, skin_tones } from '../constants/emoji-meta';
+import {
+  categories,
+  EmojiListTypes,
+  skin_tones,
+} from '../constants/emoji-meta';
 import { searchEmojis as searchEmojisUtil } from '../utils/emoji-utils';
 
 const initialValues = {
@@ -55,7 +59,10 @@ export default class EmojiPickerComponent extends Component {
         return true;
       }
 
-      return emoji.skintone === this.activeSkinTone.index || (this.activeSkinTone.index === 0 && emoji.skins?.length);
+      return (
+        emoji.skintone === this.activeSkinTone.index ||
+        (this.activeSkinTone.index === 0 && emoji.skins?.length)
+      );
     });
   }
 
@@ -116,11 +123,15 @@ export default class EmojiPickerComponent extends Component {
 
     // if allowed categories, only include them
     if (isPresent(this.args.allowedCategories)) {
-      filteredCategories = filteredCategories.filter((cat) => this.args.allowedCategories.includes(cat.id));
+      filteredCategories = filteredCategories.filter((cat) =>
+        this.args.allowedCategories.includes(cat.id)
+      );
     }
     // if disallowed categories, exclude them
     if (isPresent(this.args.disallowedCategories)) {
-      filteredCategories = filteredCategories.filter((cat) => !this.args.disallowedCategories.includes(cat.id));
+      filteredCategories = filteredCategories.filter(
+        (cat) => !this.args.disallowedCategories.includes(cat.id)
+      );
     }
     // exclude 'custom' & 'hair-color' categories
     filteredCategories = filteredCategories.filter(
@@ -136,7 +147,11 @@ export default class EmojiPickerComponent extends Component {
 
   get emojiList() {
     return this.emojiService.allEmojis.filter((emoji) => {
-      return isPresent(emoji.group) && this.filteredCategoryIds.includes(emoji.group) && emoji.version !== 13.1;
+      return (
+        isPresent(emoji.group) &&
+        this.filteredCategoryIds.includes(emoji.group) &&
+        emoji.version !== 13.1
+      );
     });
   }
 
@@ -162,7 +177,9 @@ export default class EmojiPickerComponent extends Component {
   }
 
   get searchResults() {
-    return this.searchText.length > 3 ? searchEmojisUtil(this.searchText, this.emojiList) : [];
+    return this.searchText.length > 3
+      ? searchEmojisUtil(this.searchText, this.emojiList)
+      : [];
   }
 
   get recentEmojis() {

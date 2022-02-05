@@ -47,7 +47,10 @@ export default class EmojiService extends Service {
     this.fetching = true;
 
     try {
-      const [emojisByGroup, recentEmojis] = await Promise.all([this._fetchEmojisJsonData(), this._fetchRecentEmojis()]);
+      const [emojisByGroup, recentEmojis] = await Promise.all([
+        this._fetchEmojisJsonData(),
+        this._fetchRecentEmojis(),
+      ]);
       this._setEmojiProperties(emojisByGroup, recentEmojis);
     } catch (e) {
       console.error('ember-emoji-picker', e);
