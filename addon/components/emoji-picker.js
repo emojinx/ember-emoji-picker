@@ -20,6 +20,10 @@ const initialValues = {
   categoryIconSize: 24,
 };
 
+function validCategoryId(categoryId) {
+  return Object.keys(categories).includes(categoryId);
+}
+
 export default class EmojiPickerComponent extends Component {
   @service emojiService;
 
@@ -96,6 +100,16 @@ export default class EmojiPickerComponent extends Component {
   @action
   toggleSkinTonePicker() {
     this.skinTonePickerVisible = !this.skinTonePickerVisible;
+  }
+
+  @action
+  handleScrollToCategory(categoryId) {
+    if (
+      validCategoryId(categoryId) &&
+      this.activeCategory !== categories[categoryId]
+    ) {
+      this.activeCategory = categories[categoryId];
+    }
   }
 
   // Configurations: User Args OR Default

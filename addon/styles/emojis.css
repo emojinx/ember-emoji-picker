@@ -10,7 +10,6 @@
   contain-intrinsic-size: var(--emoji-icon-grid-height, 25rem);
   overflow-y: auto;
   overscroll-behavior: contain;
-  scroll-snap-type: y proximity;
   min-inline-size: 8rem;
   block-size: var(--emoji-icon-grid-height, 25rem);
 

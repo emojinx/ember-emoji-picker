@@ -37,8 +37,9 @@
       @emojisGroupedByCategories={{this.emojisGroupedByCategories}}
       @searchResults={{this.searchResults}}
       @recentEmojis={{this.recentEmojis}}
-      @handleEmojiSelect={{this.handleEmojiSelect}}
       @isCorrectSkinTone={{this.isCorrectSkinTone}}
+      @onEmojiSelect={{this.handleEmojiSelect}}
+      @onScrollToCategory={{this.handleScrollToCategory}}
       as |emptyText|
     >
       {{#if (has-block 'empty')}}

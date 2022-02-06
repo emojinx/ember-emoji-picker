@@ -7,12 +7,17 @@
 <div
   class='emoji-picker-emojis__list emoji-picker-emojis__list--default'
   data-emoji-picker-hidden={{if (not-eq @activeEmojiList 'default') true}}
-  {{scroll-to @activeCategory}}
+  {{did-update this.scrollToActiveCategory @activeCategory}}
+  {{did-insert this.createIntersectionObserver}}
+  {{will-destroy this.destroyIntersectionObserver}}
 >
   {{#each-in @emojisGroupedByCategories as |categoryId emojis|}}
     <section
       class='emoji-picker-emojis__grid emoji-picker-emojis__category--{{categoryId}}'
       aria-label={{categoryId}}
+      data-categoryid={{categoryId}}
+      {{did-insert this.registerInsersectionObserver}}
+      {{will-destroy this.unregisterInsersectionObserver}}
     >
       {{#each emojis as |emoji|}}
         {{! Sprite img & positions are set by `emoji-style` helper }}
@@ -23,7 +28,7 @@
           data-emoji={{emoji.emoji}}
           data-hex={{emoji.hexcode}}
           style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
-          {{on 'click' (fn @handleEmojiSelect emoji)}}
+          {{on 'click' (fn @onEmojiSelect emoji)}}
         ></i>
       {{/each}}
     </section>
@@ -48,7 +53,7 @@
         aria-label={{emoji.annotation}}
         data-emoji={{emoji.hexcode}}
         style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
-        {{on 'click' (fn @handleEmojiSelect emoji)}}
+        {{on 'click' (fn @onEmojiSelect emoji)}}
       ></i>
     {{else}}
       {{yield 'Sorry, no results found :/'}}
@@ -69,7 +74,7 @@
         aria-label={{emoji.annotation}}
         data-emoji={{emoji.hexcode}}
         style={{emoji-style @iconSet emoji @isCorrectSkinTone}}
-        {{on 'click' (fn @handleEmojiSelect emoji)}}
+        {{on 'click' (fn @onEmojiSelect emoji)}}
       ></i>
     {{else}}
       {{yield 'No Recents :/'}}
