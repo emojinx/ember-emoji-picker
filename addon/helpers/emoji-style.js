@@ -36,9 +36,6 @@ const DISPLAY_NONE_STYLE = htmlSafe('display: none;');
  * Template helper function to calculate inline style attributes for emojis
  */
 function emojiStyle([iconset, emoji, validateFn]) {
-  if (!validateFn(emoji)) {
-    return DISPLAY_NONE_STYLE;
-  }
 
   const bgUrl = getSpriteUrlPng(iconset);
   if (!bgUrl) {
@@ -57,6 +54,7 @@ function emojiStyle([iconset, emoji, validateFn]) {
     ${bg_url_style}
     ${bg_size_style}
     ${bg_position_style}
+    ${!validateFn(emoji) ? 'display: none;' : ''}
   `;
 
   return htmlSafe(style);
