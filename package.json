@@ -8,7 +8,7 @@
   ],
   "repository": "github:emojinx/ember-emoji-picker.git",
   "license": "MIT",
-  "author": "uchihamalolan@gmail.com",
+  "author": "Malolan B <uchihamalolan@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
