@@ -1,8 +1,8 @@
 import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { getGroupedEmojiListUrl } from '../utils/emoji-urls';
 import { findEmojisBy as findEmojis } from '../utils/emoji-utils';
+import { groupedEmojiList } from '../constants/asset-urls'
 
 export default class EmojiService extends Service {
   @service cacheService;
@@ -32,7 +32,7 @@ export default class EmojiService extends Service {
   }
 
   async _fetchEmojisJsonData() {
-    const url = getGroupedEmojiListUrl();
+    const url = groupedEmojiList;
     const response = await this.cacheService.getCachedOrFetch(url);
     const emojiJsonData = await response.json();
 
